@@ -1,15 +1,14 @@
 .StandingsGrid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(auto-fit);
-    width: 20em;
     background-color: rgb(255, 255, 255, 0.4);
-    border-radius: 15px 15px 0px 0px;
-    margin-top: 10px;
+    border-radius: 15px 15px 15px 15px;
+    justify-items: center;
+    margin: 10px 0;
     padding: 10px;
+    /* Margin-bottom just for looks, to see how it looks with screen stretched out */
+    margin-bottom: 700px;
 }
 
 .StandingsGrid h4 {
-    font-size: 1.1em;
-    border-bottom: 1px solid white;
 }

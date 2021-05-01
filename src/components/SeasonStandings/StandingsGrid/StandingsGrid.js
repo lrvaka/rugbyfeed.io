@@ -1,24 +1,25 @@
 import React from "react";
 import styles from "./StandingsGrid.module.css";
-import StandingsGridItems from "./StandingsGridItems/StandingsGridItems";
+import StandingsItem from "./StandingsItem";
 
 export default function StandingsGrid({ data }) {
-  console.log(data);
   return (
     <div className={styles.StandingsGrid}>
-      <h4>Rank</h4>
-      <h4>Team</h4>
-      <h4>Record</h4>
-      <h4>Points</h4>
-      <h4>PointDiff</h4>
-      {data.map((e) => (
-        <React.Fragment>
-          <h1>{e.rank}</h1>
-          <h1>{e.team}</h1>
-          <h1>{e.record}</h1>
-          <h1>{e.points}</h1>
-          <h1>{e.pointsDiff}</h1>
-        </React.Fragment>
+      <h3>Rank</h3>
+      <h3>Team</h3>
+      <h3>Record</h3>
+      <h3>Points</h3>
+      <h3>PointDiff</h3>
+      {
+          data.map((e) => (
+        <StandingsItem
+          key={e.key}
+          rank={e.rank}
+          abb={e.abb}
+          record={e.record}
+          points={e.points}
+          pointsDiff={e.pointsDiff}
+        />
       ))}
     </div>
   );
