@@ -56,14 +56,15 @@ function App() {
       "http://api.sportradar.us/rugby-union/trial/v3/en/seasons/sr:season:82154/standings.json?api_key=8y3cv5swzhqczzs38cm92x5g"
     );
     const data = await response.json();
-    console.log(response.json);
 
-    const conferences = data.standings[0].groups.length;
-    console.log(conferences);
-    for (let i = 0; i < conferences; i++) {
-      let transformedStandings = data.standings[0].groups[i].standings.map(
+    let conferences = data.standings[0].groups.length; //Figures out the length of conferences
+    for (let i = 0; i < conferences; i++) { //Iterates through each conference, if there is more than 1, appends to state
+      let conferenceName = data.standings[0].groups[i].group_name; // Pulls out the conference name
+      console.log(conferenceName);
+      let transformedStandings = data.standings[0].groups[i].standings.map( //pulls out needed info
         (e) => {
           return {
+            conference: conferenceName,
             key: Math.random(),
             rank: e.rank,
             team: e.competitor.name,
@@ -75,12 +76,13 @@ function App() {
         }
       );
       console.log(transformedStandings);
-      setSeasonStandings((prevStandings) => 
-        [transformedStandings, ...prevStandings]);
-    }
-
-    
+      setSeasonStandings((prevStandings) => [
+        transformedStandings,
+        ...prevStandings,
+      ]); // sets season standings, appends new state with previous state, in case there is more
+    } // than one conference, etc.
   }
+
   return (
     <div className="background">
       <Header />

@@ -9,7 +9,7 @@ export default function SeasonStandings({ data,  onfetchSeasonStandings}) {
       <div className={styles.SeasonStandings}>
         <h1>Major League Rugby</h1>
         <h2>Season Standings</h2>
-        <button onClick={onfetchSeasonStandings}>yessss</button>
+        <button onClick={onfetchSeasonStandings}>Get standings</button>
         <StandingsGrid data={data} />
       </div>
     </Container>
