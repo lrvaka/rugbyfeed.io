@@ -1,13 +1,29 @@
 .StandingsGrid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    background-color: rgb(255, 255, 255, 0.4);
-    border-radius: 15px 15px 15px 15px;
-    justify-items: center;
-    margin: 10px 0;
-    padding: 10px;
-    /* Margin-bottom just for looks, to see how it looks with screen stretched out */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background-color: rgb(255, 255, 255, 0.4);
+  border-radius: 15px 15px 15px 15px;
+  justify-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  /* Margin-bottom just for looks, to see how it looks with screen stretched out */
 }
 
-.StandingsGrid h4 {
+.standingsRow {
+  display: grid;
+  grid-column: 1 / 6;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  width: 100%;
+  border-bottom: 1px solid white;
+  margin-bottom: 10px;
 }
+
+.gridHeading {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column: 1 / 6;
+  justify-items: center;
+  margin-bottom: 10px;
+}
+

@@ -1,15 +1,16 @@
 import styles from "./SeasonStandings.module.css";
 import Container from "../../UI/Container/Container";
 import StandingsGrid from "./StandingsGrid/StandingsGrid";
+import SelectLeague from "./SelectLeague/SelectLeague";
 
-export default function SeasonStandings({ data,  onfetchSeasonStandings}) {
-  console.log(data);
+export default function SeasonStandings({ data, onfetchSeasonStandings }) {
+  let league = data.map((e) => e)[0];
+
   return (
     <Container>
       <div className={styles.SeasonStandings}>
-        <h1>Major League Rugby</h1>
-        <h2>Season Standings</h2>
-        <button onClick={onfetchSeasonStandings}>Get standings</button>
+        <SelectLeague onSelectLeague={onfetchSeasonStandings} />
+        <h2>{league ? league[0].league : null}</h2>
         <StandingsGrid data={data} />
       </div>
     </Container>

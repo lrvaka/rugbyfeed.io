@@ -3,75 +3,37 @@ import { useState } from "react";
 import Header from "./UI/Header/Header";
 import SeasonStandings from "./components/SeasonStandings/SeasonStandings";
 
-// const SEASON_STANDINGS = [
-//   {
-//     rank: 1,
-//     team: "TOR",
-//     record: "3-3",
-//     points: 15,
-//     pointsDiff: 58,
-//   },
-//   {
-//     rank: 2,
-//     team: "RUG",
-//     record: "3-3",
-//     points: 15,
-//     pointsDiff: 17,
-//   },
-//   {
-//     rank: 3,
-//     team: "RUG",
-//     record: "3-2",
-//     points: 15,
-//     pointsDiff: -43,
-//   },
-//   {
-//     rank: 4,
-//     team: "NOL",
-//     record: "2-2",
-//     points: 14,
-//     pointsDiff: 11,
-//   },
-//   {
-//     rank: 5,
-//     team: "OLD",
-//     record: "2-2",
-//     points: 12,
-//     pointsDiff: -5,
-//   },
-//   {
-//     rank: 6,
-//     team: "NEW",
-//     record: "2-3",
-//     points: 11,
-//     pointsDiff: 4,
-//   },
-// ];
-
 function App() {
   const [seasonStandings, setSeasonStandings] = useState([]);
 
-  async function fetchSeasonStandingsHandler() {
+  async function fetchSeasonStandingsHandler(e) {
+    setSeasonStandings([]);
+
     const response = await fetch(
-      "http://api.sportradar.us/rugby-union/trial/v3/en/seasons/sr:season:82154/standings.json?api_key=8y3cv5swzhqczzs38cm92x5g"
+      `https://api.b365api.com/v2/league/table?token=83691-qA0zhpAhnWGQ0E&league_id=${e}`
     );
     const data = await response.json();
+    console.log(data);
 
-    let conferences = data.standings[0].groups.length; //Figures out the length of conferences
-    for (let i = 0; i < conferences; i++) { //Iterates through each conference, if there is more than 1, appends to state
-      let conferenceName = data.standings[0].groups[i].group_name; // Pulls out the conference name
+    //Figures out the length of conferences
+    let leagueName = data.results.season.name;
+    for (let i = 0; i < data.results.overall.tables.length; i++) {
+      //Iterates through each conference, if there is more than 1, appends to state
+      let conferenceName = data.results.overall.tables[i].groupname; // Pulls out the conference name
       console.log(conferenceName);
-      let transformedStandings = data.standings[0].groups[i].standings.map( //pulls out needed info
+      let transformedStandings = data.results.overall.tables[i].rows.map(
+        //Pulls out needed info
         (e) => {
           return {
+            league: leagueName,
             conference: conferenceName,
-            key: Math.random(),
-            rank: e.rank,
-            team: e.competitor.name,
-            abb: e.competitor.abbreviation,
+            id: e.team.id,
+            icon: e.team.image_id,
+            rank: e.pos,
+            team: e.team.name,
             record: `${e.win} - ${e.loss}`,
             points: e.points,
-            pointsDiff: e.points_diff,
+            pointsDiff: e.goalDiffTotal,
           };
         }
       );
