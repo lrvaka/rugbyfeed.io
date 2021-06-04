@@ -1,7 +1,9 @@
 .SeasonStandings {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 10px;
-    background-color: rgb(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+  background-color: rgb(255, 255, 255, 0.1);
+  border-radius: 0px 0px 15px 15px;
+  height: 1080px
 }
