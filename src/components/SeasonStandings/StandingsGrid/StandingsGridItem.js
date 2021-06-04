@@ -13,7 +13,7 @@ export default function StandingsGridItem({
     <React.Fragment>
       <h2>{rank}</h2>
       {<img className={styles.icon}
-        alt="team-icon"
+        alt={`${team}`}
         src={`https://assets.betsapi.com/images/team/b/${icon}.png`}
       />}
       <h2>{record}</h2>
