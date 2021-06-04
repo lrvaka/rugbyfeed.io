@@ -12,6 +12,7 @@ export default function SelectLeague({ onSelectLeague }) {
       <option value="11970">Premiership Rugby</option>
       <option value="11969">Pro 14</option>
       <option value="596">Top 14</option>
+      <option value="25813">Super Rugby Trans-Tasman</option>
     </select>
   );
 }
