@@ -10,7 +10,7 @@ function App() {
     setSeasonStandings([]);
 
     const response = await fetch(
-      `.netlify/functions/fetch-standings/?leagueID=${e}`
+      `.netlify/functions/fetch-standings?leagueID=${e}`
     );
     console.log(response);
     const data = await response.json();
