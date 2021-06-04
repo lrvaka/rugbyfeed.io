@@ -12,9 +12,7 @@ function App() {
     const response = await fetch(
       `.netlify/functions/fetch-standings?leagueID=${e}`
     );
-    console.log(response);
     const data = await response.json();
-    console.log(data);
 
     //Figures out the length of conferences
     let leagueName = data.results.season.name;
