@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 require("dotenv").config();
 
-const handler = async (event, context) => {
+exports.handler = async (event, context) => {
   const api_key = process.env.API_KEY;
   const leagueID = event.queryStringParameters.leagueID;
   const response = await fetch(
@@ -12,5 +12,3 @@ const handler = async (event, context) => {
   console.log(data);
   return data;
 };
-
-module.exports = { handler };
