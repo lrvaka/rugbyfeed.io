@@ -1,8 +1,9 @@
 const fetch = require('node-fetch')
 
 const handler = async function (e) {
+  const api_key = process.env.API_KEY;
   try {
-    const response = await fetch('https://icanhazdadjoke.com', {
+    const response = await fetch(`https://api.b365api.com/v2/league/table?token=${api_key}&league_id=${e}`, {
       headers: { Accept: 'application/json' },
     })
     if (!response.ok) {
@@ -11,10 +12,7 @@ const handler = async function (e) {
     }
     const data = await response.json()
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ msg: data.joke }),
-    }
+    return data;
   } catch (error) {
     // output to netlify function log
     console.log(error)
