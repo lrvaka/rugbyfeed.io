@@ -1,7 +1,6 @@
 {
   "name": "rugbyfeed.io",
   "version": "0.1.0",
-  "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",
@@ -17,7 +16,6 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "postinstall": "netlify-lambda install",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -35,9 +33,6 @@
       "not dead",
       "not op_mini all"
     ],
-    "devDependencies": {
-      "netlify-lambda": "^1.6.3"
-    },
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
