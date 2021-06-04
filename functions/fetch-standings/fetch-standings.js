@@ -16,8 +16,9 @@ const handler = async function (event, context) {
       // NOT res.status >= 200 && res.status < 300
       return { statusCode: response.status, body: response.statusText };
     }
+    
     const data = await response.json();
-
+    console.log(data);
     return data;
   } catch (error) {
     // output to netlify function log
