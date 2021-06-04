@@ -7,6 +7,7 @@ Access all your favorite up-to-date rugby competition standings, information ext
 ### Features
 
   - Dropdown menu selection
+  - API call done through Netlify functions
   - All popular international rugby comps
   - Tables separated by conference if available
   - Team icons, wins, losses, point differential and more included
