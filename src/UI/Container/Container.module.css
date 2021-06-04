@@ -1,6 +1,7 @@
 .Container {
     max-width: 1100px;
     margin: 0 auto;
+    /* Allows for a little spacing on mobile devices */
     padding: 0 10px;
     /* Sets the default width for all UI components */
 }

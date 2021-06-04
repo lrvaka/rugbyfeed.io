@@ -10,8 +10,9 @@ function App() {
     setSeasonStandings([]);
 
     const response = await fetch(
-      `https://api.b365api.com/v2/league/table?token=83691-qA0zhpAhnWGQ0E&league_id=${e}`
+      `http://localhost:5000/standings/${e}`
     );
+    console.log(response);
     const data = await response.json();
     console.log(data);
 
