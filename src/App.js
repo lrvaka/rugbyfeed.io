@@ -10,7 +10,7 @@ function App() {
     setSeasonStandings([]);
 
     const response = await fetch(
-      `http://localhost:5000/standings/${e}`
+      `standings/${e}`
     );
     console.log(response);
     const data = await response.json();
