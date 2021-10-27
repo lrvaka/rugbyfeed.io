@@ -8,6 +8,7 @@ export default function SeasonStandings({
   data,
   onfetchSeasonStandings,
   isLoading,
+  error,
 }) {
   let league = data.map((e) => e)[0];
 
@@ -22,6 +23,7 @@ export default function SeasonStandings({
           </React.Fragment>
         )}
         {isLoading && <p>Loading...</p>}
+        {!isLoading && error && <p>{error}</p>}
       </div>
     </Container>
   );
