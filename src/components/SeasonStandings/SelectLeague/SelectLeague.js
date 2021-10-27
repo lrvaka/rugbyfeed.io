@@ -17,19 +17,6 @@ export default function SelectLeague({ onSelectLeague }) {
         <option value="596">Top 14</option>
         <option value="25813">Super Rugby Trans-Tasman</option>
       </select>
-      <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      ></script>
-      <ins
-        class="adsbygoogle"
-        style={{ display: `block` }}
-        data-ad-format="fluid"
-        data-ad-layout-key="-fb+5w+4e-db+86"
-        data-ad-client="ca-pub-3854548660961412"
-        data-ad-slot="5988072436"
-      ></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </React.Fragment>
   );
 }

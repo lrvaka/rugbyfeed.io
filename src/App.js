@@ -5,8 +5,10 @@ import SeasonStandings from "./components/SeasonStandings/SeasonStandings";
 
 function App() {
   const [seasonStandings, setSeasonStandings] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function fetchSeasonStandingsHandler(e) {
+    setIsLoading(true);
     setSeasonStandings([]);
 
     const response = await fetch(
@@ -42,6 +44,7 @@ function App() {
         ...prevStandings,
       ]); // sets season standings, appends new state with previous state, in case there is more
     } // than one conference, etc.
+    setIsLoading(false);
   }
 
   return (
@@ -50,6 +53,7 @@ function App() {
       <SeasonStandings
         onfetchSeasonStandings={fetchSeasonStandingsHandler}
         data={seasonStandings}
+        isLoading={isLoading}
       />
     </div>
   );
