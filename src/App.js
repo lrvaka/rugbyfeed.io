@@ -16,11 +16,14 @@ function App() {
       const response = await fetch(
         `.netlify/functions/fetch-standings?leagueID=${e}`
       );
-      const data = await response.json();
-
+      
       if (!response.ok) {
         throw new Error("API key expired");
       }
+
+      const data = await response.json();
+
+     
 
       //Figures out the length of conferences
       let leagueName = data.results.season.name;
