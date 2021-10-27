@@ -50,10 +50,10 @@ function App() {
           ...prevStandings,
         ]); // sets season standings, appends new state with previous state, in case there is more
       } // than one conference, etc.
-      setIsLoading(false);
     } catch (error) {
       setError(error.message);
     }
+    setIsLoading(false);
   }
 
   return (
